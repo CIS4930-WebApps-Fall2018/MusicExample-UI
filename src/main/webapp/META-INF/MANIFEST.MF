@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: Apache Maven 3.5.4
+Built-By: phili
+Build-Jdk: 10.0.2
+Implementation-Title: music
+Implementation-Version: 2.0.3.RELEASE
+Implementation-Vendor-Id: com.musicApp.rest
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/music
+

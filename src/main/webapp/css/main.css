@@ -1,0 +1,63 @@
+body {
+	background-color: #FBFBFB;
+	margin: 0px;
+	font-family: Verdana;
+	
+}
+
+h1 {
+	text-align: center;
+}
+
+#banner{
+	background-image: url("images/banner.jpg");
+	background-position: right top;
+	background-size: contain;
+	height: 75px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+#albumDetails{
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.trackTileDiv,
+.albumTileDiv {
+	border: 1px solid #FFD084;
+	background-color: #FEFEFE;
+	margin: 3px;
+	display: inline-block;
+	text-align: center;
+}
+
+.albumTileDiv{
+	width: 25%;
+	height: 25%;
+}
+
+.trackTileDiv{
+	width: 10%;
+	height: 10%;
+	font-size: 0.8em;
+}
+
+
+.albumTileDiv:hover {
+	box-shadow: 2px 2px 1px grey;
+	width: 30%;
+	height: 30%;
+}
+
+.albumIcon {
+	border-radius: 12px;
+	width: 24px;
+	height: 24px;
+	background-color: black;
+    background-image: radial-gradient(black, white, black);
+	color: #FFFFFF;
+	position:relative;
+	margin: 15px auto; /**setting left and right margin to auto will center the div**/
+}
+
