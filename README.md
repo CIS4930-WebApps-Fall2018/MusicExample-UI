@@ -7,15 +7,16 @@
    1. JS DOM - https://www.w3schools.com/js/js_htmldom.asp
    2. JS AJAX (XMLHttpRequest / xhr) - https://www.w3schools.com/js/js_ajax_intro.asp
    3. JS Objects - https://www.w3schools.com/js/js_htmldom.asp
-4. Last.fm - https://www.last.fm/api ; 3rd Party Music REST API provider
-   1. To use, sign up for an account and add your key to music\src\main\webapp\js\DataController
+4. To explore using 3rd Party APIs, checkout the "thirdPartyAPI" branch
+   1. Last.fm - https://www.last.fm/api ; 3rd Party Music REST API provider
+   2. To use, sign up for an account and add your key to music\src\main\webapp\js\DataController
    ```
    function DataController(isLocal){
 	this.isLocalApi = isLocal;
 	this.baseUrl = null;
 	this.setBaseUrl();
-	this.lastFmApiKey = ""; /**If you would like to use Last FM API, you will need to register for a developer account and get an API key**/ 
-}
+	this.lastFmApiKey = ""; /**If you would like to use Last FM API, 
+	you will need to register for a developer account and get an API key**/}
    ```
    
 
