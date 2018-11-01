@@ -1,4 +1,25 @@
-# MusicRESTfulWebService - Example
+# MusicExample-UI
+
+### Documentation:
+1. HTML - https://www.w3schools.com/html/default.asp
+2. CSS - https://www.w3schools.com/css/default.asp
+3. JavaScript - https://www.w3schools.com/js/default.asp
+   1. JS DOM - https://www.w3schools.com/js/js_htmldom.asp
+   2. JS AJAX (XMLHttpRequest / xhr) - https://www.w3schools.com/js/js_ajax_intro.asp
+   3. JS Objects - https://www.w3schools.com/js/js_htmldom.asp
+4. Last.fm - https://www.last.fm/api ; 3rd Party Music REST API provider
+   1. To use, sign up for an account and add your key to music\src\main\webapp\js\DataController
+   ```
+   function DataController(isLocal){
+	this.isLocalApi = isLocal;
+	this.baseUrl = null;
+	this.setBaseUrl();
+	this.lastFmApiKey = ""; /**If you would like to use Last FM API, you will need to register for a developer account and get an API key**/ 
+}
+   ```
+   
+
+# README from MusicRESTfulWebService - Example
 
 ### Documentation: 
    Building RESTful Web Services with JAX-RS
