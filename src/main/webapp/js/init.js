@@ -1,26 +1,35 @@
 (function() {
-	var dc = new DataController(document.baseURI);
+	var dc = new DataController(true); //true ==> use local API
 
 	/**Define what to do with the album titles list **/
 	var populateAlbumList = function (albums){
 		console.log("albums", albums);
-		var mainDiv = document.getElementById("albumList");
+		var albumDiv = document.getElementById("albumList");
+		var titleProp = "title";
+		if(albums.albums != null){
+			albums = albums.albums.album;
+			titleProp = "name";
+		}
+
+		/**Clear existing views **/
+		removeChildNodes(document.getElementById("albumDetails"));
+		removeChildNodes(albumDiv);
+
+		
 		albums.forEach(function(album){
 			/**Define the album "tile" **/			
-			var tileNode = createTileNode(album.title, "album");
+			var tileNode = createTileNode(album[titleProp], "album");
 			tileNode.addEventListener("click", function(){
 						setupDetailView(this, album.id);
 						});
-			mainDiv.appendChild(tileNode);
+			albumDiv.appendChild(tileNode);
 		});
 	}
 	
 	var setupDetailView = function (albumDiv, albumId){
 		var detailDiv = document.getElementById("albumDetails");
 		var albumDivCopy = albumDiv.cloneNode(true);
-		while (detailDiv.hasChildNodes()) {
-			detailDiv.removeChild(detailDiv.firstChild);
-		}
+		removeChildNodes(detailDiv);
 		detailDiv.appendChild(albumDivCopy);
 		dc.getAlbumById(albumId, showAlbumDetails); 
 		
@@ -30,6 +39,10 @@
 		var tracks = album.tracks;
 		console.log("tracks", tracks);
 		var detailDiv = document.getElementById("albumDetails");
+		/**
+		Here you can try to call LastFM's album.getInfo() method, check format of results and list details
+		**/
+		
 
 		tracks.forEach(function(track){
 			/**Define the track "tile" **/			
@@ -78,6 +91,30 @@
 		propNode.appendChild(textNode);
 		detailDiv.appendChild(propNode);					
 	}
+
+	/**Set event listener for radio buttons**/
+	var apiRadioButtons = document.getElementsByName("api");
+	apiRadioButtons.forEach(function(button){
+		button.addEventListener("click", function(){
+			var value = button.value;
+			if(value === "firstParty"){//use my API
+				dc.isLocalApi = true;				
+			}else{ // use 3rd party API
+				dc.isLocalApi = false;
+			}
+			dc.setBaseUrl();
+			dc.getAllAlbums(populateAlbumList);
+
+		});
+		
+	});
+	
+	var removeChildNodes = function(parentDiv){
+		while (parentDiv.hasChildNodes()) {
+			parentDiv.removeChild(parentDiv.firstChild);
+		}
+	}
+	
 	
 	/**Call the getAllAlbums function and provide the above 
 	defined callback function.  The DataController will execute this callback
